@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./resources/css/numerarios.css">
+    <title>Cálculo de Numerários</title>
+</head>
+<body>
+    <header>
+        <a href="./index.html"><img src="https://multitoc.com.br/wp-content/uploads/2021/08/LOGO-MULTITOC-GRANDE-PRETA-1024x266.png"></a>
+        <h1>Cálculo de Numerários</h1>
+    </header>
+    
+    
+    <section id="parameters">
+        
+        <table id="table2">
+            <thead>
+                <tr>
+                    <th colspan="4"><p>Despesas</p></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td class="type">PESO LÍQ.</td>
+                    <td><input type="number" class="data" step="0.01" id="weight"></td>
+                    <td class="type">DÓLAR </td>
+                    <td><input type="number" class="data" step="0.01" id="dolar"></td>
+                    
+                </tr>
+                <tr>
+                    <td class="type">SISCOMEX</td>
+                    <td><input type="number" class="data" step="0.01" id="sis"></td>
+                    <td class="">AFRMM</td>
+                    <td><input type="number" class="data" step="0.01" id="mar"></td>
+                </tr>
+                <tr>
+                    <td class="type">FRETE USD</td>
+                    <td><input type="number" class="data" step="0.01" id="freight"></td>
+                    <td class="type">CAPATAZIA USD</td>
+                    <td><input type="number" class="data" step="0.01" id="cap"></td>
+                </tr>
+                <tr>
+                    <td class="type">SEGURO USD</td>
+                    <td><input type="number" class="data" step="0.01" id="ins"></td>
+                    
+                </tr>
+                
+
+            </tbody>
+        </table>
+        
+        <div class="buttons">
+            <button id="calculate" onclick="populate()"><img src="./resources/img/robot.svg">Calcular</button>
+            <button id="erase" onclick="window.print()"><img src="./resources/img/printer.svg">Imprimir</button>
+        </div>
+
+        <div class="buttons">
+            <button id="erase" onclick="limpar()"><img src="./resources/img/shower.svg">Limpar</button>
+            <a href="./index.html"><button id="home"><img src="./resources/img/home.svg">Voltar</button></a>
+        </div>
+        
+
+    </section>
+
+    <section id="results">
+        <table id="result-table">
+            <thead>
+                <th>Natureza</th>
+                <th>N.C.M.</th>
+                <th>FOB</th>
+                <th>Peso Líquido</th>
+                <th>II</th>
+                <th>IPI</th>
+                <th>PIS</th>
+                <th>COFINS</th>
+                <th>ICMS</th>
+                <th>Valor Aduaneiro</th>
+                <th>II</th>
+                <th>IPI</th>
+                <th>PIS</th>
+                <th>COFINS</th>
+                <th>ICMS</th>
+                <th>Frete</th>
+                <th>Seguro</th>
+            </thead>
+            <tbody id="resTbody">
+                <tr id="row" class="row">
+                    <td class="resEdit">
+                        <select class="resNat resEdit">
+                            <option>Isento de ICMS</option>
+                            <option>Com ICMS</option>
+                        </select>
+                    </td>
+                    <td class="resEdit"><input type="number" class="resNCM resEdit"></td>
+                    <td class="resEdit"><input type="number" class="resFOB resEdit"></td>
+                    <td class="resEdit"><input type="number" class="resPeso resEdit"></td>
+                    <td class="resEdit"><input type="number" class="rateII resEdit tax"></td>
+                    <td class="resEdit"><input type="number" class="rateIPI resEdit tax"></td>
+                    <td class="resEdit"><input type="number" class="ratePIS resEdit tax"></td>
+                    <td class="resEdit"><input type="number" class="rateCOFINS resEdit tax"></td>
+                    <td class="resEdit"><input type="number" class="rateICMS resEdit tax"></td>
+                    <td><input type="text" class="resVA resData" disabled></td>
+                    <td><input type="text" class="resII resData" disabled></td>
+                    <td><input type="text" class="resIPI resData" disabled></td>
+                    <td><input type="text" class="resPIS resData" disabled></td>
+                    <td><input type="text" class="resCOFINS resData" disabled></td>
+                    <td><input type="text" class="resICMS resData" disabled></td>
+                    <td><input type="text" class="resFreight resData" disabled></td>
+                    <td><input type="text" class="resIns resData" disabled></td>
+
+                </tr>
+                
+            </tbody>
+        </table>
+
+    </section>
+    <button class="buttons lineChanger" onclick="inserir()" id="inserir"><img src="./resources/img/plus.svg">Inserir Linha</button>
+    <button class="buttons lineChanger" onclick="deletar()" id="excluir"><img src="./resources/img/circle-minus-solid.svg">Excluir Linha</button>
+    <section id="totals">
+        <table>
+            <thead>
+                <th>Despesas</th>
+                <th>Valores</th>
+            </thead>
+            <tbody>
+                <tr>
+                    <td class="type">II</td>
+                    <td><input type="text" class="resData" step="0.01" id="totalII" disabled></td>
+                </tr>
+                <tr>
+                    <td class="type">IPI</td>
+                    <td><input type="text" class="resData" step="0.01" id="totalIPI" disabled></td>
+                </tr>
+                <tr>
+                    <td class="type">PIS</td>
+                    <td><input type="text" class="resData" step="0.01" id="totalPIS" disabled></td>
+                </tr>
+                <tr>
+                    <td class="type">COFINS</td>
+                    <td><input type="text" class="resData" step="0.01" id="totalCOFINS" disabled></td>
+                </tr>
+                <tr>
+                    <td class="type">ICMS</td>
+                    <td><input type="text" class="resData" step="0.01" id="totalICMS" disabled></td>
+                </tr>
+                <tr>
+                    <td class="type">AFRMM</td>
+                    <td><input type="text" class="resData" step="0.01" id="totalMar" disabled></td>
+                </tr>
+                <tr>
+                    <td class="type">SISCOMEX</td>
+                    <td><input type="text" class="resData" step="0.01" id="totalSis" disabled></td>
+                </tr>
+                <tr>
+                    <td class="type totalExpenses">Total</td>
+                    <td><input type="text" class="resData totalExpenses" step="0.01" id="totalExpenses" disabled></td>
+                </tr>
+            </tbody>
+        </table>
+        
+
+    </section>
+    <script src="./numerarios.js"></script>
+</body>
+</html>

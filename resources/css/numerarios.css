@@ -1,0 +1,314 @@
+/* GENERAL RULES SECTION */
+
+*{
+    font-family: 'Roboto', sans-serif;
+    margin: 0;
+}
+
+
+
+h1{
+    font-size: 35px;
+}
+
+input{
+    font-size: 1rem;
+}
+    
+
+
+
+/* HEADER SECTION */
+
+header{
+    display: grid;
+    grid-template-columns: 1fr 10fr;
+    align-items: center;
+    background-color: crimson;
+    
+    
+}
+
+header img{
+    width: 150px;
+    height: auto;
+    float: left;
+    padding-left: 10px;
+}
+
+header h1{
+    text-align: center;
+    
+}
+
+
+
+
+
+@media only screen and (max-width: 600px){
+    header img{
+        width: 100px;
+        padding: 0;
+        width: 200px;
+        
+    }
+
+    header h1{
+        font-size: 25px;
+        margin-top: 10px;
+    }
+
+    header{
+        display: flex;
+        flex-direction: column;
+        align-items: center ;
+    }
+
+    #logo{
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        margin-bottom: 20px;
+        
+    }
+
+}
+
+/* MAIN SECTION GENERAL RULES */
+
+#parameters{
+    margin: 20px 5px;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+   
+
+    
+}
+
+@media only screen and (max-width: 600px){
+    
+    #parameters{
+        flex-direction: column;
+    }
+}
+
+/* TABLE SUB-SECTION */
+table{
+    
+    border: 1px solid black;
+    text-align: left;
+}
+
+table input{
+    border:none;
+}
+
+
+table td{
+    border: 1px solid black;
+    width: 70px;
+}
+
+thead th{
+    text-align: center;
+    border: 1px dotted black;
+    background-color: rgb(192, 243, 192);
+}
+
+.data{
+    background-color: rgb(252, 239, 224);
+}
+
+.data{
+    width: 85%;
+}
+
+.type{
+    width: 80px;
+}
+
+#table2{
+    margin-top: 20px;
+    
+}
+
+#table2 .data{
+    width: 100px;
+}
+
+#table2 .type{
+    width: 130px;
+}
+
+#row{
+    display: none;
+}
+
+tbody .resEdit {
+    background-color: rgb(252, 239, 224);
+}
+
+
+td, .resData{
+    background-color: lightgray;
+}
+
+.resData, .resEdit{
+    text-align: center;
+}
+
+.resData{
+    color: rgb(85, 85, 85);
+    
+}
+
+
+
+/* RESULT TABLE SECTION */
+#results{
+    margin-left: 1%;
+}
+
+.tax{
+    width: 60px;
+}
+
+
+
+/* MAIN MEDIA QUERY */
+@media only screen and (max-width: 850px){
+    main{
+        
+        display: flex;
+        flex-direction: column;
+        
+    }
+
+    #table2{
+        margin: auto;
+        width: 100%;
+    }
+
+    #table2 .data{
+        width: 70px;
+        height: 40px;
+    }
+
+    #totals{
+        margin-bottom: 20px;
+    }
+
+    .resData{
+        color:black;
+    }
+    
+
+}
+
+
+
+
+/* BUTTON SECTION */
+
+.buttons{
+    
+    display: flex;
+    flex-direction: column;
+    
+
+    
+}
+
+button{
+    height: 40px;
+    width: 120px;
+    background-color: crimson;
+    border-radius: 10px;
+    color: white;
+    font-size: 20px;
+    border: 1px solid gray;
+    cursor: pointer;
+    margin-top: 7px;
+    
+    
+    
+}
+
+.buttons button, .lineChanger{
+    width: 180px;
+    margin-left: 1%;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    flex-direction: row;
+}
+
+
+button:hover{
+    background-color: rgba(220, 20, 60, 0.699);
+}
+
+.buttons img{
+    width: 20px;
+    height: auto;
+    
+}
+
+a{
+    text-decoration: none;
+}
+
+.lineChanger{
+    display: inline-block;
+}
+
+.lineChanger img{
+    margin-right: 10px;
+}
+
+
+
+@media only screen and (max-width: 600px){
+    .buttons{
+        margin-bottom: 30px;
+        margin-top: 30px;
+        width: 100%;
+        justify-content: flex-start;
+        gap: 20px;
+        flex-direction: column;
+        
+    
+    }
+
+    button{
+        height: 80px;
+        width:113px;
+        padding: 0;
+    }
+
+    #inserir{
+        height: 50px;
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: center;
+        
+    }
+
+
+}
+    
+
+/* TOTALS TABLE SECTION */
+
+#totals{
+    margin-top: 40px;
+    margin-left: 1%;
+}
+
+.totalExpenses{
+    background-color: rgb(255, 255, 0);
+    color: #303030;
+    font-weight: 800;
+}
